@@ -2,9 +2,10 @@
 	AjaxSolr.TextWidget = AjaxSolr.AbstractTextWidget.extend({
 		init: function () {
   			var self = this;
-  			$(this.target).find('input').bind('keydown', function(e) {
+  			$(this.target).find('input#query').bind('keydown', function(e) {
   				if (e.which == 13) {
       				var value = $(this).val();
+      				$( '#query' ).autocomplete("close");
       				if (value && self.set(value)) {      					
 						var dt_params = '';
 						if ($('input[name=law]').is(':checked')) dt_params += 'Law ';
@@ -20,7 +21,7 @@
 		},
 
 		afterRequest: function () {
- 	 		$(this.target).find('input').val('');
+ 	 		$(this.target).find('input#query').val('');
 		}
 	});
 })(jQuery);

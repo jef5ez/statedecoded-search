@@ -49,7 +49,6 @@ AjaxSolr.theme.prototype.snippet = function (doc, highlighting, mlt) {
   		output += mlt[doc.key].docs[x].law_section + ': ' + mlt[doc.key].docs[x].law_title + '</a></span>';
   	}
   }
-  else alert('nothing like this in '+doc.key);
   return output;
 };
 

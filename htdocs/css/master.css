@@ -366,7 +366,6 @@ header nav#main_navigation ul li a {
 
 header nav#main_navigation ul li a#home  { background: transparent url('/images/nav_home.png') top left no-repeat; height: 23px; width: 44px;}
 header nav#main_navigation ul li a#about { background: transparent url('/images/nav_about.png') top left no-repeat; height: 23px; width: 52px;}
-header nav#main_navigation ul li a#search_nav { background: transparent url('/images/nav_search.png') top left no-repeat; height: 23px; width: 52px;}
 
 header nav#main_navigation ul li.utility {
 	float: right;
@@ -384,7 +383,7 @@ div#search {
 	width: 33%;
 }
 
-div#search input[type="search"] {
+div#search input[type="text"] {
 	width: 200px;
 	margin: 0;
 }
