@@ -76,4 +76,3 @@ unset($sidebar);
 $template->parse();
 
 ?>
-

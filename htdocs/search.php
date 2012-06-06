@@ -1,6 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://w3.org/TR/xhtmll/DTD/chtmll-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>VAcode Mockup</title>
+	<link rel="stylesheet" type="text/css" href="/css/vacode.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/autocomplete/css/ui-lightness/jquery-ui-1.8.20.custom.css"/>  
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/autocomplete/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="/autocomplete/js/jquery-ui-1.8.20.custom.min.js"></script>
+	<script type="text/javascript" src="/lib/core/Core.js"></script>
+	<script type="text/javascript" src="/lib/core/AbstractManager.js"></script>
+	<script type="text/javascript" src="/lib/managers/Manager.jquery.js"></script>
+	<script type="text/javascript" src="/lib/core/Parameter.js"></script>
+	<script type="text/javascript" src="/lib/core/ParameterStore.js"></script>
+	<script type="text/javascript" src="/lib/core/AbstractWidget.js"></script>
+	<script type="text/javascript" src="/lib/widgets/jquery/PagerWidget.js"></script>
+	<script type="text/javascript" src="/lib/helpers/jquery/ajaxsolr.theme.js"></script>
+	<script type="text/javascript" src="/lib/core/AbstractFacetWidget.js"></script>
+	<script type="text/javascript" src="/lib/core/AbstractTextWidget.js"></script>
+	<script type="text/javascript" src="/widgets/TagcloudWidget.js"></script>
+	<script type="text/javascript" src="/widgets/ResultWidget.js"></script>
+	<script type="text/javascript" src="/widgets/TextWidget.js"></script>
+	<script type="text/javascript" src="/widgets/CurrentSearchWidget.js"></script>
+	<script type="text/javascript" src="/js/vacode.theme.js"></script>
+	<script type="text/javascript" src="/js/jquery.livequery.js"></script>
+	<script type="text/javascript" src="/js/vacode.js"></script>
+	<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="/css/master.css" type="text/css" media="screen">
+</head>
+<body>
+	<header id="masthead">
+		<hgroup>
+			<h1><a href="/">Virginia Decoded</a></h1>
+			<h2></h2>
+		</hgroup>
+		<nav id="main_navigation">
+			<ul>
+				<li><a href="/" class="ir" id="home">Home</a></li>
+				<li><a href="/about.php/" class="ir" id="about">About</a></li>
+				<li><a href="/search.php/" class="ir" id="search_nav">Search</a></li>
+			</ul>
+		</nav> <!-- // #main_navigation -->
+	</header> <!-- // #masthead -->
+	<div id="wrap">
+		<div id="header">
+		</div>
+		
+		<div class="right">
+			<div id="result">
+				<div id="navigation">
+					<ul id="pager"></ul>
+					<div id="pager-header"></div>
+				</div>
+				<div id="docs"></div>
+			</div>
+		</div>
+		
+		<div class="left">
+			<h2>Search</h2>
+			<span id="search_help">(press ESC to close suggestions)</span>
+			<ul id="search">
+				<input type="text" id="query" name="query" />
+			</ul>
+			<span id="curr_search"></span>
+			
+			<h2>Filter by Document</h2>
+			<ul id="doc_filter">
+				<input type="checkbox" name="law" checked="checked" />Law<br/>
+				<input type="checkbox" name="definition" checked="checked" />Definition<br/>
+				<input type="checkbox" name="court_decision" />Court Decision<br/>
+				<input type="checkbox" name="comment" />Comment<br/>
+			</ul>
+			
+		
+			
+			<h2>Fields:</h2>
+			<ul id="selection"></ul>
+			
+			<h2>Title</h2>
+			<div class="tagcloud" id="law_code"></div>
+			
+			<h2>Tag</h2>
+			<div class="tagcloud" id="tags"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</body>
+</html>
+
 <?php
 
-# Include the PHP declarations that drive this page.
+/*# Include the PHP declarations that drive this page.
 require $_SERVER['DOCUMENT_ROOT'].'/../includes/page-head.inc.php';
 require $_SERVER['DOCUMENT_ROOT'].'/../includes/sphinxapi.php';
 
@@ -91,7 +182,7 @@ else
 		-larceny)</code>”.)</p></p>
 		</section>';*/
 	
-	$body = '<p>'.number_format($result['total_found']).' results found.</p>';
+/*	$body = '<p>'.number_format($result['total_found']).' results found.</p>';
 	
 	$body .= '
 		<form action="/search/"> 
@@ -187,6 +278,6 @@ unset($sidebar);
 
 # Parse the template, which is a shortcut for a few steps that culminate in sending the content
 # to the browser.
-$template->parse();
+$template->parse();*/
 
 ?>
