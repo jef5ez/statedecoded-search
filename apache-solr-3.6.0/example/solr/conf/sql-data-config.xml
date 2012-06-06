@@ -1,6 +1,6 @@
 <dataConfig>
 	<dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost/vacode" 
-		user="root" />
+		user="root" password='root' />
 	<document name="vacode_doc" >
         	<entity name="doc" query="select * from laws" transformer="TemplateTransformer">
 			<field column="doc_type" template="Law" />
