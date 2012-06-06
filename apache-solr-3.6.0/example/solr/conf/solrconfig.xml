@@ -746,7 +746,10 @@
        <str name="pf">law_text, def_text, court_decision</str>
 <!-- Highlighting params-->
        <str name="hl">true</str>
-       <str name="hl.fl">text</str>
+       <str name="hl.fl">law_text, law_title, def_text</str>
+	<str name="hl.snippets">3</str>
+	<str name="hl.fragsize">200</str>
+	<str name="hl.mergeContiguous">true</str>
 <!-- moreLikeThis params-->
        <str name="mlt">true</str>
        <str name="mlt.qf">text^0.5 key^10.0</str>
@@ -760,7 +763,7 @@
 
 
      </lst>
-     <arr name="components">
+     <arr name="last-components">
        <str>spellcheck</str>
      </arr>
     <!-- In addition to defaults, "appends" params can be specified
