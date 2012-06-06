@@ -10,7 +10,7 @@ require_once 'config.inc.php';
 $db =& MDB2::connect(MYSQL_DSN);
 if (PEAR::isError($db))
 {
-	die('We’re having some database trouble right now. Check back later. Sorry!');
+	die($db->getMessage() . ', ' . $db->getDebugInfo());
 }
 
 # We must always connect to the database with UTF-8.

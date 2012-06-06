@@ -1,5 +1,7 @@
 <?php
 
+#show errors
+
 # Get the contents of a given URL.
 function fetch_url($url)
 {
@@ -842,6 +844,7 @@ class Structure
 		if (!isset($this->id))
 		{
 			$sql .= ' IS NULL';
+			error_log("this->id is not set", 0);
 		}
 		else
 		{
@@ -854,7 +857,7 @@ class Structure
 		$sql .= ' ORDER BY ';
 		
 		# We may sort by either Roman numerals or Arabic (traditional) numerals. 
-		if ($this->sort == 'roman')
+		if (isset($this->sort) && $this->sort == 'roman')
 		{
 			$sql .= 'fromRoman(number) ASC';
 		}

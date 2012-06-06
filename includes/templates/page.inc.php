@@ -36,7 +36,7 @@
 	<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
 	<![endif]-->
 
-	<script src="https://www.google.com/jsapi?key=YOURKEY"></script>
+	<script src="https://www.google.com/jsapi"></script>
 	<script>
 		google.load("jquery", "1.4.3");
 		google.load("jqueryui", "1.8.11");
@@ -50,8 +50,8 @@
 		</hgroup>
 		<nav id="main_navigation">
 			<div id="search">
-				<form method="get" action="/search/">
-					<input type="search" size="20" name="q" placeholder="Search the Code"/>
+				<form method="get" action="/search.php/">
+					<!--<input type="search" size="20" name="q" placeholder="Search the Code"/>-->
 					<input type="submit" value="Search" />
 				</form>
 			</div> <!-- // #search -->

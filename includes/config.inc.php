@@ -24,7 +24,7 @@ define('EDITION_ID', 1);
 define('EDITION_YEAR', 2011);
 
 # MySQL DSN
-define('MYSQL_DSN', 'mysql://username:password@localhost/databasename');
+define('MYSQL_DSN', 'mysql://root:root@localhost:3306/vacode');
 
 # Specify the title and chapter of the code that contains definitions of terms that are used
 # throughout the code, and thus should have a global scope.
