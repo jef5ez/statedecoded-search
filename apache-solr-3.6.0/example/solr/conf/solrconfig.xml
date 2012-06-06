@@ -742,24 +742,27 @@
        <int name="rows">10</int>
        <str name="df">text</str>
        <str name="defType">edismax</str>
-       <str name="qf">text^0.5 tags^1.4 law_title^1.2 law_section^5.0 court_number^5 law_text^1.2 court_abstract^1.3 def_text^1.3</str>
-       <str name="pf">law_text, def_text, court_decision</str>
+       <str name="qf">law_title^1.0 law_text^0.5 def_term^2.0</str>
+       <str name="pf">law_title, law_text, def_term</str>
+       <str name="facet">true</str>
 <!-- Highlighting params-->
        <str name="hl">true</str>
-       <str name="hl.fl">law_text, law_title, def_text</str>
-	<str name="hl.snippets">3</str>
-	<str name="hl.fragsize">200</str>
-	<str name="hl.mergeContiguous">true</str>
+       <str name="hl.fl">law_text court_decision def_text law_title title court_name def_term</str>
+       <str name="hl.fragsize">200</str>
+       <str name="hl.mergeContiguous">true</str>
+       <str name="hl.snippets">3</str>
+       <str name="hl.simple.pre">&lt;span class=&quot;hl1&quot;&gt;</str>
+       <str name="hl.simple.post">&lt;/span&gt;</str>
 <!-- moreLikeThis params-->
        <str name="mlt">true</str>
-       <str name="mlt.qf">text^0.5 key^10.0</str>
-       <str name="mlt.fl">text, key</str>
+       <str name="mlt.qf">law_text^0.5 law_title^2.0</str>
+       <str name="mlt.fl">law_text, law_title</str>
        <int name="mlt.count">3</int>
 <!-- spellcheck paramas -->
-	<str name="spellcheck">true</str>
-	<str name="spellcheck.collate">true</str>
-	<str name="spellcheck.count">4</str>
-	<str name="spellcheck.onlyMorePopular">true</str>
+       <str name="spellcheck">true</str>
+       <str name="spellcheck.collate">true</str>
+       <str name="spellcheck.count">4</str>
+       <str name="spellcheck.onlyMorePopular">true</str>
 
 
      </lst>
