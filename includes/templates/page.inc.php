@@ -46,12 +46,12 @@
 <body>
 	<header id="masthead">
 		<hgroup>
-			<h1><a href="/">The State Decoded</a></h1>
+			<h1><a href="/">Virginia Decoded</a></h1>
 		</hgroup>
 		<nav id="main_navigation">
 			<div id="search">
 				<form method="get" action="/search.php/">
-					<!--<input type="search" size="20" name="q" placeholder="Search the Code"/>-->
+					<input type="search" size="20" name="q" placeholder="Search the Code"/>
 					<input type="submit" value="Search" />
 				</form>
 			</div> <!-- // #search -->

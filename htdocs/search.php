@@ -36,10 +36,14 @@
 			<h2></h2>
 		</hgroup>
 		<nav id="main_navigation">
+			<div id="search">
+				<input type="search" id="query" name="query" placeholder="Search the Code" />
+				<input type="button" value="Search" />
+				<!--<input type="submit" value="Search" />-->
+			</div> <!-- // #search -->
 			<ul>
 				<li><a href="/" class="ir" id="home">Home</a></li>
 				<li><a href="/about.php/" class="ir" id="about">About</a></li>
-				<li><a href="/search.php/" class="ir" id="search_nav">Search</a></li>
 			</ul>
 		</nav> <!-- // #main_navigation -->
 	</header> <!-- // #masthead -->
@@ -59,19 +63,16 @@
 		
 		<div class="left">
 			<h2>Search</h2>
-			<span id="search_help">(press ESC to close suggestions)</span>
-			<ul id="search">
-				<input type="text" id="query" name="query" />
-			</ul>
 			<span id="curr_search"></span>
 			
 			<h2>Filter by Document</h2>
-			<ul id="doc_filter">
-				<input type="checkbox" name="law" checked="checked" />Law<br/>
-				<input type="checkbox" name="definition" checked="checked" />Definition<br/>
-				<input type="checkbox" name="court_decision" />Court Decision<br/>
-				<input type="checkbox" name="comment" />Comment<br/>
-			</ul>
+			<div id="doc_filter">
+				<input type="checkbox" name="all" onClick="check_event('all')"/>Search All<br/>
+				<input type="checkbox" name="law" checked="checked" onClick="check_event('law')"/>Law<br/>
+				<input type="checkbox" name="definition" checked="checked" onClick="check_event('definition')" />Definition<br/>
+				<input type="checkbox" name="court_decision" onClick="check_event('court_decision')" />Court Decision<br/>
+				<input type="checkbox" name="comment" onClick="check_event('comment')" />Comment<br/>
+			</div>
 			
 		
 			

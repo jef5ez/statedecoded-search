@@ -4,13 +4,16 @@ function log(msg) {
     }, 0);
 }
 
+function check_event(type) {
+	
+}
 
 $(function(){
 	$( '#query' ).autocomplete({
 		delay: 0,
 		source: function(request, response){
 				function suggestData(data) {
-					var suggestions = data.terms.text;
+					var suggestions = data.terms.law_text;
 					for(var x=1; x<suggestions.length; x++){
 						suggestions.splice(x, 1);
 					} 
@@ -30,14 +33,14 @@ $(function(){
 					dataType: "jsonp",
 					jsonp : "json.wrf",
 					success: suggestData,
-					error: function(data) { response(['']) },
+					error: function(data) { response(['error']) },
 				});
 			
 			function getstandardargs() {
 				var params = [
 					'wt=json'
 					, 'indent=on'
-					, 'terms.fl=text'
+					, 'terms.fl=law_text'
 				];
 				return params;
 			}
