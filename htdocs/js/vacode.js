@@ -20,7 +20,7 @@ $(function(){
 				// and remember the jqxhr object for this request
 				var params = getstandardargs().concat(qstr);
 				var urlData = params.join('&');
-				url = 'http://localhost:8983/solr/terms?'+urlData;
+				url = globalSolrUrl +'terms?'+urlData;
 				$.ajax({
 					crossDomain: true,  
 					dataType: "jsonp",
@@ -98,6 +98,7 @@ var Manager;
   		innerWindow: 1,
   		renderHeader: function (perPage, offset, total) {
     		$('#pager-header').html($('<span/>').text('displaying ' + Math.min(total, offset + 1) + ' to ' + Math.min(total, offset + perPage) + ' of ' + total));
+    		$('#pager-header').append('<b><span id="suggestions" /></b>');
   		}
 	}));
 	

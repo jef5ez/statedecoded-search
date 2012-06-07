@@ -8,10 +8,16 @@
 	<link rel="stylesheet" type="text/css" href="/autocomplete/css/ui-lightness/jquery-ui-1.8.20.custom.css"/>
 	<?php
 		$solrUrl = 'http://localhost:8983/solr/';
+		if (isset($_GET['q']) && !empty($_GET['q']))
+		{
+			echo '	<script type="text/javascript">
+						var globalSolrQuery = "'.$_GET['q'].'";
+					</script>';
+		}
 	?>
 	<script type="text/javascript">
 		var globalSolrUrl = "<?= $solrUrl ?>";
-	</script>  
+	</script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-ui-1.8.20.custom.min.js"></script>
@@ -71,10 +77,8 @@
 		
 		<div class="left">
 			<div class="left_section" id="search_section">
-				<h2>Search</h2>
 				<div>
-					<span id="curr_search"></span><br/>
-					<span id="suggestions"></span>
+					<h2><span id="curr_search"></span></h2>
 				</div>
 			</div>
 			
