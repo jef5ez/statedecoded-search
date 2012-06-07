@@ -131,6 +131,16 @@ a:hover {
 #calendar {
   width: 160px;
 }
+
+.left_section{
+  background-color:#f0f0f0;
+  border-radius: 3px;
+}
+.left_section h2 {
+  background-color:#829986;
+  padding:2px;
+}
+
 .tagcloud {
   background-color: #606060;
   border-radius: 3px;
