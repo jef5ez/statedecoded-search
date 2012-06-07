@@ -1,16 +1,20 @@
 (function ($) {
-	AjaxSolr.SpellcheckWidget = AjaxSolr.AbstractWidget.extend({
+	AjaxSolr.SpellcheckWidget = AjaxSolr.AbstractTextWidget.extend({
 		
 		afterRequest: function () {
-		  	$(this.target).empty();
-			if (this.manager.response.spellcheck == undefined)
-			{
-				return;
+			$(this.target).empty();
+			if (this.manager.response.spellcheck && this.manager.response.spellcheck.suggestions.collation){
+				AjaxSolr.theme('suggest', this.target, this.manager.response.spellcheck.suggestions.collation, this.searchSuggestion());
 			}
-			var query = this.manager.store.get("q").value;
-		  	for (var i = 0, l = this.manager.response.spellcheck.suggestions[query].suggestion.length; i < l; i++) {
-				var doc = this.manager.response.spellcheck.suggestions[query].suggestion[i];
-				$(this.target).append(doc, "<br/>");
+		},
+		
+		searchSuggestion: function() {
+			var self = this;
+			return function(e) {
+				var value = $(this).text();
+				if (value && self.set(value)) {
+					self.manager.doRequest(0);
+				}
 			}
 		}
 		

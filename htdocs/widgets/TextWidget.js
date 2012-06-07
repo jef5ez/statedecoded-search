@@ -12,6 +12,13 @@
       				}
     			}
   			});
+  			$(this.target).find('input:button').click(function(e) {
+				var value = $(self.target).find('input#query').val();
+				$( '#query' ).autocomplete("close");
+				if (value && self.set(value)) {
+					self.manager.doRequest(0);
+				}
+  			});
 		},
 
 		afterRequest: function () {

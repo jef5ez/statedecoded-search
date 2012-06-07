@@ -81,11 +81,20 @@
 			<div class="left_section" id="search_section">
 			<h2>Filter by Document</h2>
 			<form id="doc_filter">
-				<input type="checkbox" name="ALL" />Search All<br/>
-				<input type="checkbox" name="Law" checked="checked" />Law<br/>
-				<input type="checkbox" name="Definition" checked="checked" />Definition<br/>
-				<input type="checkbox" name="Court_Decision" />Court Decision<br/>
-				<input type="checkbox" name="Comment" />Comment<br/>
+				<input type="checkbox" name="ALL" id="ALL"/>
+				<label for="ALL">Search All</label>
+				<br/>
+				<input type="checkbox" name="Law" id="Law" checked="checked" />
+				<label for="Law">Law</label>
+				<br/>
+				<input type="checkbox" name="Definition" id="Definition" checked="checked" />
+				<label for="Definition">Definition</label>
+				<br/>
+				<input type="checkbox" name="Court_Decision" id="Court_Decision"/>
+				<label for="Court_Decision">Court_Decision</label>
+				<br/>
+				<input type="checkbox" name="Comment" id="Comment"/>
+				<label for="Comment">Comment</label>
 			</form>
 			</div>
 			

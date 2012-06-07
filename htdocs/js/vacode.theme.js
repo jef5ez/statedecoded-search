@@ -60,6 +60,12 @@ AjaxSolr.theme.prototype.facet_link = function (value, handler) {
   return $('<a href="#"/>').text(value).click(handler);
 };
 
+AjaxSolr.theme.prototype.suggest = function (target, value, handler) {
+	$(target).text('Did you mean ');
+	$(target).append($('<a href="#" />').text(value).click(handler));
+	$(target).append('?');
+}
+
 AjaxSolr.theme.prototype.no_items_found = function () {
   return 'no items found in current selection';
 };
