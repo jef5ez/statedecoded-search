@@ -45,7 +45,7 @@ var Manager;
 (function ($) {
   $(function () {
     Manager = new AjaxSolr.Manager({
-      solrUrl: globalSolrUrl
+      solrUrl: gSolrUrl
     });
     
     Manager.addWidget(new AjaxSolr.ResultWidget({
@@ -61,7 +61,7 @@ var Manager;
   		innerWindow: 1,
   		renderHeader: function (perPage, offset, total) {
     		$('#pager-header').html($('<span/>').text('displaying ' + Math.min(total, offset + 1) + ' to ' + Math.min(total, offset + perPage) + ' of ' + total));
-    		$('#pager-header').append('<b><span id="suggestions" /></b>');
+    		$('#pager-header').append(' for <b><span id="curr_search"></span><span id="suggestions" /></b>');
   		}
 	}));
 	

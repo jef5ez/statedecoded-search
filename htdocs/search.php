@@ -8,15 +8,17 @@
 	<link rel="stylesheet" type="text/css" href="/autocomplete/css/ui-lightness/jquery-ui-1.8.20.custom.css"/>
 	<?php
 		$solrUrl = 'http://localhost:8983/solr/';
+		echo '<script type="text/javascript">';
 		if (isset($_GET['q']) && !empty($_GET['q']))
 		{
-			
-			echo '	<script type="text/javascript">
-						var globalSolrQ = "'.$_GET['q'].'";
-						var globalSolrFQ = "'.$_GET['qf'].'";
-						var globalSolrUrl = "'.$solrUrl.'";
-					</script>';
+			if(!empty($_GET['q'])){
+				echo 'var gSolrQ = "'.$_GET['q'].'";';
+			}
+			if(!empty($_GET['facets'])){
+				echo 'var gFacets = "'.$_GET['facets'].'".split(",");';
+			}
 		}
+		echo 'var gSolrUrl = "'.$solrUrl.'";</script>';
 	?>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-1.7.2.min.js"></script>
@@ -76,12 +78,6 @@
 		</div>
 		
 		<div class="left">
-			<div class="left_section" id="search_section">
-				<div>
-					<h2><span id="curr_search"></span></h2>
-				</div>
-			</div>
-			
 			<div class="left_section" id="search_section">
 			<h2>Filter by Document</h2>
 			<form id="doc_filter">

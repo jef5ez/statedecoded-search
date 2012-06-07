@@ -50,7 +50,7 @@
 		</hgroup>
 		<nav id="main_navigation">
 			<div id="search">
-				<form method="get" action="/search.php/">
+				<form method="get" action="/search/">
 					<input type="search" size="20" name="q" placeholder="Search the Code"/>
 					<input type="submit" value="Search" />
 				</form>
