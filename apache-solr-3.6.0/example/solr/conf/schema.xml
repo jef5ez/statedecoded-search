@@ -575,6 +575,7 @@
    <field name="law_id" type="string" indexed="true" stored="true" />
    <field name="law_location" type="text_general" indexed="true" stored="true" />
    <field name="law_section" type="code_break_right" indexed="true" stored="true" />
+   <field name="law_chapter" type="text_general" indexed="true" stored="true" />
    <field name="law_code" type="code_break_left" indexed="true" stored="true" />
    <field name="law_title" type="string" indexed="true" stored="true" />
    <field name="law_text" type="text_general" indexed="true" stored="true" />
@@ -583,6 +584,7 @@
    <field name="tags" type="string" indexed="true" stored="true" multiValued="true" />
    <copyField source="tags" dest="text"/>
    <copyField source="law_location" dest="text"/>
+   <copyField source="law_chapter" dest="text"/>
    <copyField source="law_title" dest="text"/>
    <copyField source="law_text" dest="text"/>
    <!-- End vacode.org law fields -->

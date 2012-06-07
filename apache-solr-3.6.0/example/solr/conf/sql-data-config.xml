@@ -14,6 +14,10 @@
 			<entity name="tags" query="select * from tags where law_id=${doc.id}">
 				<field column="text" name="tags" />
 			</entity>
+			<entity name="chapter" query="select * from structure join laws on structure_id=structure.id join structure_unified on structure.id=s1_id where laws.id=${doc.id}">
+				<field column="s1_number" name="law_chapter"/>
+			</entity>
+
 	        </entity>
 		<entity name="definitions" query="select * from definitions" transformer="TemplateTransformer, HTMLStripTransformer">
 			<field column="doc_type" template="Definition" />
