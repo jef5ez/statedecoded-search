@@ -98,6 +98,9 @@ a:hover {
 #pager-header {
   display: inline;
 }
+#suggestions {
+  float: right;
+}
 #pager li,
 .links li {
   list-style-type: none;

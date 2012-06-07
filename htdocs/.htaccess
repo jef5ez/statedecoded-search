@@ -1,0 +1,68 @@
+# Block abusive spiders
+BrowserMatchNoCase Yandex bad_bot
+BrowserMatchNoCase Gigabot bad_bot
+BrowserMatchNoCase Larbin bad_bot
+BrowserMatchNoCase Sogou bad_bot
+Order Deny,Allow
+Deny from env=bad_bot
+
+# Don't show any error messages.
+#php_flag display_errors off
+
+# Compress everything except images
+# Insert filter
+SetOutputFilter DEFLATE
+
+# Don't compress images
+SetEnvIfNoCase Request_URI \
+\.(?:gif|jpe?g|png)$ no-gzip dont-vary
+
+# Make sure proxies don't deliver the wrong content
+Header append Vary User-Agent env=!dont-vary
+
+# Send Expires headers
+<ifModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 seconds"
+  ExpiresByType text/html "access plus 360 seconds"
+  ExpiresByType image/gif "access plus 604800 seconds"
+  ExpiresByType image/jpeg "access plus 604800 seconds"
+  ExpiresByType image/png "access plus 604800 seconds"
+  ExpiresByType text/css "access plus 604800 seconds"
+  ExpiresByType text/javascript "access plus 604800 seconds"
+  ExpiresByType application/x-javascript "access plus 604800 seconds"
+</ifModule>
+
+RewriteEngine On
+RewriteBase /
+
+# Any request for www.vacode.org should go to vacode.org.
+RewriteCond %{HTTP_HOST} ^www.vacode.org [NC]
+RewriteRule ^(.*)$ http://vacode.org/$1 [L,R=301]
+
+# Requests for a specific section.
+RewriteRule ^([0-9A-Za-z\.]{1,4})-([0-9\.:]{1,10})/$ /law.php?section_number=$1-$2 [QSA]
+
+# Requests for a specific chapter.
+RewriteRule ^([0-9A-Za-z\.]{1,4})/([0-9a-z:\.]{1,8})/$ /structure.php?title_number=$1&chapter_number=$2 [QSA]
+
+# Requests for a specific title.
+RewriteRule ^([0-9A-Za-z\.]{1,4})/$ /structure.php?title_number=$1 [QSA]
+
+# Requests to titles lacking a trailing slash should be forwarded to the proper structure.
+RewriteRule ^([0-9a-z\.]{1,4})$ /$1/ [R=permanent]
+
+# Requests to chapters lacking a trailing slash should be forwarded to the proper structure.
+RewriteRule ^([0-9a-z\.]{1,4})/([0-9a-z:\.]{1,8})$ /$1/$2/ [R=permanent]
+
+# Requests to sections lacking a trailing slash should be forwarded to the proper structure.
+RewriteRule ^([0-9a-z\.]{1,4})-([0-9\.:]{1,10})$ /$1-$2/ [R=permanent]
+
+# Requests for the search engine.
+RewriteRule ^search/(.*)$ /search.php?q=$i [QSA]
+
+# Requests for the about page.
+RewriteRule ^about/$ /about.php [QSA]
+
+# Requests for the downloads page.
+RewriteRule ^downloads/$ /downloads.php [QSA]

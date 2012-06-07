@@ -133,7 +133,7 @@ class Law
 	# Retrieve all of the material relevant to a given law.
 	function get_law()
 	{
-
+	
 		# We're going to need access to the database connection throughout this class.
 		global $db;
 		
@@ -188,7 +188,7 @@ class Law
 		{
 			return false;
 		}
-		
+
 		# Return the result as an object.
 		$law = $result->fetchRow(MDB2_FETCHMODE_OBJECT);
 		
@@ -257,25 +257,6 @@ class Law
 		$law->structure_contents = $struct->list_laws();
 		
 		
-		# Get the chapter for this law and include those (if there are any).
-		/*$tmp = new Law;
-		$tmp->chapter_id = $law->chapter_id;
-		$law->chapter = $tmp->get_chapter();
-		
-		# Get the title for this law.
-		$tmp = new Law;
-		$tmp->title_id = $law->chapter->title_id;
-		$law->title = $tmp->get_title();
-		
-		# Get the listing of all other sections in the chapter that contains this section.
-		$chapter = new Chapter;
-		$chapter->id = $law->chapter_id;
-		$law->chapter_contents = $chapter->list_sections();*/
-		
-		
-		
-		
-		
 		# Figure out what the next and prior sections are (we may have 0-1 of either). Iterate
 		# through all of the contents of the chapter.
 		for ($i=0; $i<count((array) $law->structure_contents); $i++)
@@ -297,9 +278,6 @@ class Law
 				break;
 			}
 		}
-		
-		# Get the tags for this law and include those (if there are any).
-		$law->tags = Law::get_tags($law->id);
 		
 		# Get the court decisions for this law and include those (if there are any).
 		$law->court_decisions = Law::get_court_decisions($law->section);
