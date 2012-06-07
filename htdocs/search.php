@@ -5,7 +5,13 @@
 <head>
 	<title>VAcode Mockup</title>
 	<link rel="stylesheet" type="text/css" href="/css/vacode.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/autocomplete/css/ui-lightness/jquery-ui-1.8.20.custom.css"/>  
+	<link rel="stylesheet" type="text/css" href="/autocomplete/css/ui-lightness/jquery-ui-1.8.20.custom.css"/>
+	<?php
+		$solrUrl = 'http://localhost:8983/solr/';
+	?>
+	<script type="text/javascript">
+		var globalSolrUrl = "<?= $solrUrl ?>";
+	</script>  
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-ui-1.8.20.custom.min.js"></script>
@@ -24,6 +30,7 @@
 	<script type="text/javascript" src="/widgets/TextWidget.js"></script>
 	<script type="text/javascript" src="/widgets/CurrentSearchWidget.js"></script>
 	<script type="text/javascript" src="/widgets/CheckboxFilterWidget.js"></script>
+	<script type="text/javascript" src="/widgets/SearchUpdateWidget.js"></script>
 	<script type="text/javascript" src="/js/vacode.theme.js"></script>
 	<script type="text/javascript" src="/js/jquery.livequery.js"></script>
 	<script type="text/javascript" src="/js/vacode.js"></script>
@@ -40,7 +47,6 @@
 			<div id="search">
 				<input type="search" id="query" name="query" placeholder="Search the Code" />
 				<input type="button" value="Search" />
-				<!--<input type="submit" value="Search" />-->
 			</div> <!-- // #search -->
 			<ul>
 				<li><a href="/" class="ir" id="home">Home</a></li>

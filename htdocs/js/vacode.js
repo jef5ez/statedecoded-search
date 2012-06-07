@@ -82,7 +82,7 @@ var Manager;
 (function ($) {
   $(function () {
     Manager = new AjaxSolr.Manager({
-      solrUrl: 'http://localhost:8983/solr/'
+      solrUrl: globalSolrUrl
     });
     
     Manager.addWidget(new AjaxSolr.ResultWidget({
@@ -125,6 +125,11 @@ var Manager;
 		id: 'checkboxfilter',
 		target: '#doc_filter',
 		field: 'doc_type'
+	}));
+	
+	Manager.addWidget(new AjaxSolr.SearchUpdateWidget({
+		id: 'searchupdate',
+		target: '#curr_search'
 	}));
     
     Manager.init();
