@@ -5,7 +5,13 @@
 <head>
 	<title>VAcode Mockup</title>
 	<link rel="stylesheet" type="text/css" href="/css/vacode.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="/autocomplete/css/ui-lightness/jquery-ui-1.8.20.custom.css"/>  
+	<link rel="stylesheet" type="text/css" href="/autocomplete/css/ui-lightness/jquery-ui-1.8.20.custom.css"/>
+	<?php
+		$solrUrl = 'http://localhost:8983/solr/';
+	?>
+	<script type="text/javascript">
+		var globalSolrUrl = "<?= $solrUrl ?>";
+	</script>  
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-ui-1.8.20.custom.min.js"></script>
@@ -23,6 +29,8 @@
 	<script type="text/javascript" src="/widgets/ResultWidget.js"></script>
 	<script type="text/javascript" src="/widgets/TextWidget.js"></script>
 	<script type="text/javascript" src="/widgets/CurrentSearchWidget.js"></script>
+	<script type="text/javascript" src="/widgets/CheckboxFilterWidget.js"></script>
+	<script type="text/javascript" src="/widgets/SearchUpdateWidget.js"></script>
 	<script type="text/javascript" src="/js/vacode.theme.js"></script>
 	<script type="text/javascript" src="/js/jquery.livequery.js"></script>
 	<script type="text/javascript" src="/js/vacode.js"></script>
@@ -39,7 +47,6 @@
 			<div id="search">
 				<input type="search" id="query" name="query" placeholder="Search the Code" />
 				<input type="button" value="Search" />
-				<!--<input type="submit" value="Search" />-->
 			</div> <!-- // #search -->
 			<ul>
 				<li><a href="/" class="ir" id="home">Home</a></li>
@@ -64,15 +71,16 @@
 		<div class="left">
 			<h2>Search</h2>
 			<span id="curr_search"></span>
+			<span id="suggestions"></span>
 			
 			<h2>Filter by Document</h2>
-			<div id="doc_filter">
-				<input type="checkbox" name="all" onClick="check_event('all')"/>Search All<br/>
-				<input type="checkbox" name="law" checked="checked" onClick="check_event('law')"/>Law<br/>
-				<input type="checkbox" name="definition" checked="checked" onClick="check_event('definition')" />Definition<br/>
-				<input type="checkbox" name="court_decision" onClick="check_event('court_decision')" />Court Decision<br/>
-				<input type="checkbox" name="comment" onClick="check_event('comment')" />Comment<br/>
-			</div>
+			<form id="doc_filter">
+				<input type="checkbox" name="ALL" />Search All<br/>
+				<input type="checkbox" name="Law" checked="checked" />Law<br/>
+				<input type="checkbox" name="Definition" checked="checked" />Definition<br/>
+				<input type="checkbox" name="Court_Decision" />Court Decision<br/>
+				<input type="checkbox" name="Comment" />Comment<br/>
+			</form>
 			
 		
 			

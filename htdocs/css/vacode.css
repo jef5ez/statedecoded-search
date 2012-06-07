@@ -25,7 +25,7 @@ a:hover {
 }
 
 #wrap {
-  width: 1000px;
+  width: 100%;
   margin: 0px auto;
 }
 .clear {
@@ -66,7 +66,7 @@ a:hover {
 
 .right {
   float: right;
-  width: 538px;
+  width: 70%;
   padding: 10px 20px 10px 40px;
   border-left: 1px solid #aaa;
   text-align: justify;
@@ -107,7 +107,7 @@ a:hover {
 
 .left {
   float: left;
-  width: 390px;
+  width: 20%;
   padding: 0 0 10px 10px;
 }
 .left h2 {
