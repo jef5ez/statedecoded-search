@@ -31,6 +31,7 @@
 	<script type="text/javascript" src="/widgets/CurrentSearchWidget.js"></script>
 	<script type="text/javascript" src="/widgets/CheckboxFilterWidget.js"></script>
 	<script type="text/javascript" src="/widgets/SearchUpdateWidget.js"></script>
+	<script type="text/javascript" src="/widgets/SpellcheckWidget.js"></script>
 	<script type="text/javascript" src="/js/vacode.theme.js"></script>
 	<script type="text/javascript" src="/js/jquery.livequery.js"></script>
 	<script type="text/javascript" src="/js/vacode.js"></script>
@@ -69,10 +70,15 @@
 		</div>
 		
 		<div class="left">
-			<h2>Search</h2>
-			<span id="curr_search"></span>
-			<span id="suggestions"></span>
+			<div class="left_section" id="search_section">
+				<h2>Search</h2>
+				<div>
+					<span id="curr_search"></span><br/>
+					<span id="suggestions"></span>
+				</div>
+			</div>
 			
+			<div class="left_section" id="search_section">
 			<h2>Filter by Document</h2>
 			<form id="doc_filter">
 				<input type="checkbox" name="ALL" />Search All<br/>
@@ -81,17 +87,22 @@
 				<input type="checkbox" name="Court_Decision" />Court Decision<br/>
 				<input type="checkbox" name="Comment" />Comment<br/>
 			</form>
+			</div>
 			
-		
-			
-			<h2>Fields:</h2>
-			<ul id="selection"></ul>
-			
-			<h2>Title</h2>
-			<div class="tagcloud" id="law_code"></div>
-			
-			<h2>Tag</h2>
-			<div class="tagcloud" id="tags"></div>
+			<div class="left_section" id="search_section">
+				<h2>Fields:</h2>
+				<ul id="selection"></ul>
+				
+				<div class="facet">
+					<h2>Title</h2>
+					<div class="tagcloud" id="law_code"></div>
+				</div>
+				
+				<div class="facet">
+					<h2>Tag</h2>
+					<div class="tagcloud" id="tags"></div>
+				</div>
+			</div>
 		</div>
 		<div class="clear"></div>
 	</div>

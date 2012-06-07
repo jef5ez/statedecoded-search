@@ -132,6 +132,11 @@ var Manager;
 		target: '#curr_search'
 	}));
     
+    Manager.addWidget(new AjaxSolr.SpellcheckWidget({
+    	id: 'spellcheck',
+    	target: '#suggestions'
+    }));
+    
     Manager.init();
     Manager.store.addByValue('q', 'tiger');
     var params = {
