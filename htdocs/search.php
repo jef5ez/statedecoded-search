@@ -10,14 +10,14 @@
 		$solrUrl = 'http://localhost:8983/solr/';
 		if (isset($_GET['q']) && !empty($_GET['q']))
 		{
+			
 			echo '	<script type="text/javascript">
-						var globalSolrQuery = "'.$_GET['q'].'";
+						var globalSolrQ = "'.$_GET['q'].'";
+						var globalSolrFQ = "'.$_GET['qf'].'";
+						var globalSolrUrl = "'.$solrUrl.'";
 					</script>';
 		}
 	?>
-	<script type="text/javascript">
-		var globalSolrUrl = "<?= $solrUrl ?>";
-	</script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-ui-1.8.20.custom.min.js"></script>
