@@ -69,7 +69,7 @@ a:hover {
   width: 70%;
   padding: 10px 20px 10px 40px;
   border-left: 1px solid #aaa;
-  text-align: justify;
+  text-align: left;
 }
 .right h2 {
   padding: 15px 0 5px 0;
@@ -77,6 +77,16 @@ a:hover {
   font-size: 20px;
   font-weight: 100;
   letter-spacing: -2px;
+}
+.mlt{
+ font-size: 14px;
+ display: inline-block;
+ background-color: silver;
+ border-radius: 3px;
+ border-color: #909090;
+ padding: 1px;
+ margin: 1px;
+
 }
 #result a {
   margin-right: 5px;
@@ -109,6 +119,8 @@ a:hover {
   float: left;
   width: 20%;
   padding: 0 0 10px 10px;
+  border-radius: 5px;
+  background-color:#fff;
 }
 .left h2 {
   clear: left;
@@ -121,12 +133,17 @@ a:hover {
 }
 .tagcloud {
   padding: 10px 15px 0;
+ background-color: #606060;
+  border-radius: 3px;
 }
 .tagcloud_item {
   float: left;
-  display: block;
-  margin-right: 4px;
+  display: inline-block;
+  margin: 2px;
+  padding:3px
   color: #6998f0;
+  background-color: #d0d0d0;
+  border-radius: 3px;
 }
 .tagcloud_item:hover {
   color: #f00;
@@ -169,5 +186,6 @@ font-size: 180%;
 }
 
 span.hl1 {
+padding:2px;
 background-color: yellow;
 }
