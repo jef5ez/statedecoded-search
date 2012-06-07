@@ -6,7 +6,9 @@
 
   			var fq = this.manager.store.values('fq');
   			for (var i = 0, l = fq.length; i < l; i++) {
-    			links.push($('<a href="#"/>').text('(x) ' + fq[i]).click(self.removeFacet(fq[i])));
+  				if(fq[i].search("doc_type") < 0 ) {//I don't want to show if it is part of checkboxes
+    				links.push($('<a href="#"/>').text('(x) ' + fq[i]).click(self.removeFacet(fq[i])));
+  				}
   			}
 
   			if (links.length) {

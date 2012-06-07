@@ -23,6 +23,7 @@
 	<script type="text/javascript" src="/widgets/ResultWidget.js"></script>
 	<script type="text/javascript" src="/widgets/TextWidget.js"></script>
 	<script type="text/javascript" src="/widgets/CurrentSearchWidget.js"></script>
+	<script type="text/javascript" src="/widgets/CheckboxFilterWidget.js"></script>
 	<script type="text/javascript" src="/js/vacode.theme.js"></script>
 	<script type="text/javascript" src="/js/jquery.livequery.js"></script>
 	<script type="text/javascript" src="/js/vacode.js"></script>
@@ -64,15 +65,16 @@
 		<div class="left">
 			<h2>Search</h2>
 			<span id="curr_search"></span>
+			<span id="suggestions"></span>
 			
 			<h2>Filter by Document</h2>
-			<div id="doc_filter">
-				<input type="checkbox" name="all" onClick="check_event('all')"/>Search All<br/>
-				<input type="checkbox" name="law" checked="checked" onClick="check_event('law')"/>Law<br/>
-				<input type="checkbox" name="definition" checked="checked" onClick="check_event('definition')" />Definition<br/>
-				<input type="checkbox" name="court_decision" onClick="check_event('court_decision')" />Court Decision<br/>
-				<input type="checkbox" name="comment" onClick="check_event('comment')" />Comment<br/>
-			</div>
+			<form id="doc_filter">
+				<input type="checkbox" name="ALL" />Search All<br/>
+				<input type="checkbox" name="Law" checked="checked" />Law<br/>
+				<input type="checkbox" name="Definition" checked="checked" />Definition<br/>
+				<input type="checkbox" name="Court_Decision" />Court Decision<br/>
+				<input type="checkbox" name="Comment" />Comment<br/>
+			</form>
 			
 		
 			
