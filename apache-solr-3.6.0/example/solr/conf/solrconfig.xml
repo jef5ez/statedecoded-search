@@ -750,7 +750,9 @@
        <str name="qf">law_title^1.5 law_text^1.0 def_term^1.5 court_decision^1.0 court_abstract^1.5 </str>
        <str name="pf">law_title, law_text, def_term, court_decision, court_abstract</str>
        <str name="facet">true</str>
-       <str name="facet.field">law_code, law_chapter, tags</str>
+       <str name="facet.field">law_code</str>
+       <str name="facet.field">law_chapter</str>
+       <str name="facet.field">tags</str>
        <int name="facet.limit">30</int>
        <int name="facet.mincount">1</int>
        <str name="json.nl">map</str>
