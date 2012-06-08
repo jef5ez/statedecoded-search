@@ -742,6 +742,11 @@
        <int name="rows">10</int>
        <str name="df">text</str>
        <str name="defType">edismax</str>
+       <!-- This janky escape codes really reads as follows
+            0-2 clauses match at least 0% of terms
+	    3-5 clauses match at least 40% of the terms 
+	    6+  clauses match at lesat 50% of the terms --> 
+       <str name="mm">0&lt;0% 3&lt;40% 6&lt;50%</str>
        <str name="qf">law_title^1.5 law_text^1.0 def_term^1.5 court_decision^1.0 court_abstract^1.5 </str>
        <str name="pf">law_title, law_text, def_term, court_decision, court_abstract</str>
        <str name="facet">true</str>
