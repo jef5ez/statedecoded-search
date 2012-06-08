@@ -566,7 +566,7 @@
    <!-- End vacode.org comment fields -->
    
    <field name="def_scope" type="text_general" indexed="true" stored="true" />
-   <field name="def_term" type="string" indexed="true" stored="true" />
+   <field name="def_term" type="text_general" indexed="true" stored="true" />
    <field name="def_text" type="text_general" indexed="true" stored="true" />
    <copyField source="def_term" dest="text" />
    <copyField source="def_text" dest="text" />
@@ -577,7 +577,7 @@
    <field name="law_section" type="code_break_right" indexed="true" stored="true" />
    <field name="law_chapter" type="text_general" indexed="true" stored="true" />
    <field name="law_code" type="code_break_left" indexed="true" stored="true" />
-   <field name="law_title" type="string" indexed="true" stored="true" />
+   <field name="law_title" type="text_general" indexed="true" stored="true" />
    <field name="law_text" type="text_general" indexed="true" stored="true" />
    <field name="law_struct" type="string" indexed="true" stored="true" />
    <field name="sectionAll" type="string" indexed="false" stored="true" />
@@ -593,7 +593,7 @@
    <field name="court_date" type="string" indexed="true" stored="true" />
    <field name="court_abstract" type="text_general" indexed="true" stored="true" />
    <field name="court_decision" type="text_general" indexed="true" stored="true" />
-   <field name="court_name" type="string" indexed="true" stored="true" />
+   <field name="court_name" type="text_general" indexed="true" stored="true" />
    <field name="court_number" type="string" indexed="true" stored="true" />
    <copyField source="court_abstract" dest="text" />
    <copyField source="court_decision" dest="text" />
