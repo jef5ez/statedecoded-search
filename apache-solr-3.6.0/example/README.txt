@@ -24,6 +24,10 @@ in this directory, and when Solr is started connect to
 
   http://localhost:8983/solr/admin/
 
+To import from an sql database browse to/use curl on :
+
+  http://localhost:8983/solr/sql-dataimport?command=full-import
+
 To add documents to the index, use the post.sh script in the exampledocs
 subdirectory (while Solr is running), for example:
 
