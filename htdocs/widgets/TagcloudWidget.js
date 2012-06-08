@@ -1,11 +1,28 @@
 (function ($) {
 	AjaxSolr.TagcloudWidget = AjaxSolr.AbstractFacetWidget.extend({
-		afterRequest: function () {
-		  	if (this.manager.response.facet_counts.facet_fields[this.field] === undefined) {
-				$(this.target).html(AjaxSolr.theme('no_items_found'));
-				return;
-		  	}
+		init: function() {
+			this.name = this.field.name;
+			if (this.field.display) {
+				this.display = this.field.display;
+			} else { 
+				this.display = function (){return true};
+			};
+			this.field = this.field.field;
+			console.log(this.field);
+			$(this.target).append('<div class="facet" id="' + this.field + '_facet"> \
+				<h2>' + this.name + '</h2> \
+				<div class="tagcloud" id="' + this.field + '"></div> \
+			</div>');
+			this.tagcloud = $(this.target).find('#' + this.field);
+		},
 		
+		afterRequest: function () {
+			$(this.target).find('#' + this.field + '_facet').hide();
+			console.log(this.name + this.display);
+		  	if(this.display(this) && !(this.manager.response.facet_counts.facet_fields[this.field].length === 0)) {
+		  		$(this.target).find('#' + this.field + '_facet').show();
+			}
+			
 		  	var maxCount = 0;
 		  	var objectedItems = [];
 		  	for (var facet in this.manager.response.facet_counts.facet_fields[this.field]) {
@@ -20,11 +37,22 @@
 		  	});
 		
 		  	var self = this;
-		  	$(this.target).empty();
+		  	this.tagcloud.empty();
 		  	for (var i = 0, l = objectedItems.length; i < l; i++) {
 				var facet = objectedItems[i].facet;
-				$(this.target).append(AjaxSolr.theme('tag', facet, parseInt(objectedItems[i].count / maxCount * 10), self.clickHandler(facet)));
+				this.tagcloud.append(AjaxSolr.theme('tag', facet, parseInt(objectedItems[i].count / maxCount * 10), self.addFacet(facet)));
+				//$(this.target).append(AjaxSolr.theme('tag', facet, parseInt(objectedItems[i].count / maxCount * 10), self.addFacet(facet)));
 		  	}
+		  	this.tagcloud.append('<div class="clear"></div>');
+		},
+		
+		addFacet: function(facet) {
+			var self = this;
+			return function () {
+				gFacets.push(self.field + ":" + facet);
+				updateFacets();
+				self.clickHandler(facet)();
+			}
 		}
 	});
 })(jQuery);
