@@ -7,20 +7,22 @@
   				if (e.which == 13) {
       				var value = $(this).val();
       				$( '#query' ).autocomplete("close");
-      				if (value && self.set(value)) {
-        				self.manager.doRequest(0);
-      				}
+					if (value){
+						makeQuery.q = value;
+						makeQuery();
+					}
     			}
   			});
   			$(this.target).find('input:button').click(function(e) {
 				var value = $(self.target).find('input#query').val();
 				$( '#query' ).autocomplete("close");
-				if (value && self.set(value)) {
-					self.manager.doRequest(0);
+				if (value){
+					makeQuery.q = value;
+					makeQuery();
 				}
   			});
 		},
-
+		
 		afterRequest: function () {
  	 		$(this.target).find('input#query').val('');
 		}

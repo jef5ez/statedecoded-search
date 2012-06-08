@@ -8,14 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="/autocomplete/css/ui-lightness/jquery-ui-1.8.20.custom.css"/>
 	<?php
 		$solrUrl = 'http://localhost:8983/solr/';
-		echo '<script type="text/javascript">';
+		echo '<script type="text/javascript">var gQuery = null, gFacets = null;';
 		if (isset($_GET['q']) && !empty($_GET['q']))
 		{
 			if(!empty($_GET['q'])){
-				echo 'var gSolrQ = "'.$_GET['q'].'";';
+				echo 'gQuery = "'.$_GET['q'].'";';
 			}
 			if(!empty($_GET['facets'])){
-				echo 'var gFacets = "'.$_GET['facets'].'".split(",");';
+				echo 'gFacets = "'.$_GET['facets'].'".split(",");';
 			}
 		}
 		echo 'var gSolrUrl = "'.$solrUrl.'";</script>';

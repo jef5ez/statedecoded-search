@@ -18,7 +18,7 @@ $(function(){
 				qstr = 'terms.prefix=' + request.term;
 				var params = getstandardargs().concat(qstr);
 				var urlData = params.join('&');
-				url = globalSolrUrl +'terms?'+urlData;
+				url = gSolrUrl +'terms?'+urlData;
 				$.ajax({
 					crossDomain: true,  
 					dataType: "jsonp",
@@ -41,6 +41,21 @@ $(function(){
 		}
 	});
 });
+
+function makeQuery () {
+	if(makeQuery.q){
+		window.location.replace("?q=" + makeQuery.q + function(){ 
+			if(makeQuery.facets[0]){
+				return "&facets=" + $.each(makeQuery.facets, function(){
+					return this + ',';
+				});
+			}
+			return '';
+		}());
+	}
+}
+makeQuery.facets = [];
+
 var Manager;
 (function ($) {
   $(function () {
@@ -102,17 +117,25 @@ var Manager;
     }));
     
     Manager.init();
-    Manager.store.addByValue('q', 'tiger');
-    var params = {
-	  	'facet.field': [ 'law_code' , 'tags'],
-	  	'facet.limit': 30,
-	  	'facet.mincount': 1,
-	  	'f.topics.facet.limit': 50,
-	  	'json.nl': 'map'
-	};
-	for (var name in params) {
-	  	Manager.store.addByValue(name, params[name]);
-	}
-    Manager.doRequest();
+    if (gQuery){
+		Manager.store.addByValue('q', gQuery);
+		var params = {
+			'facet.field': [ 'law_code' , 'tags'],
+			'facet.limit': 30,
+			'facet.mincount': 1,
+			'f.topics.facet.limit': 50,
+			'json.nl': 'map'
+		};
+		for (var name in params) {
+			Manager.store.addByValue(name, params[name]);
+		}
+		if (gFacets){
+			for (var x in gFacets){
+				Manager.store.addByValue('fq', gFacets[x]);
+			}
+		}
+		Manager.doRequest();
+    }
+    else { alert('Must make a query!');}
   });
 })(jQuery);
