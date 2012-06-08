@@ -14,3 +14,6 @@ News at http://twitter.com/statedecoded
 Website at http://www.statedecoded.com/
 
 Development of The State Decoded is funded by the John S. and James L. Knight Foundation’s News Challenge.
+
+#### Search
+Solr is an open source search engine based on lucene.
