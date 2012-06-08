@@ -742,8 +742,8 @@
        <int name="rows">10</int>
        <str name="df">text</str>
        <str name="defType">edismax</str>
-       <str name="qf">law_title^1.0 law_text^0.5 def_term^2.0 court_decision^1.0 court_abstract^1.5 </str>
-       <str name="pf">law_title, law_text, def_term, court_decision</str>
+       <str name="qf">law_title^1.5 law_text^1.0 def_term^1.5 court_decision^1.0 court_abstract^1.5 </str>
+       <str name="pf">law_title, law_text, def_term, court_decision, court_abstract</str>
        <str name="facet">true</str>
 <!-- Highlighting params-->m
        <str name="hl">true</str>
