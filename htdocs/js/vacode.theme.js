@@ -49,10 +49,10 @@ AjaxSolr.theme.prototype.snippet = function (doc, highlighting, mlt) {
 		  }
 	  }
   }
-  if (doc.doc_type === "Definition"){
+  else if (doc.doc_type === "Definition"){
 	  output +=doc.def_text;
   }
-  if (doc.doc_type === "Court_Decision"){
+  else if (doc.doc_type === "Court_Decision"){
 	  output +=doc.court_name;
 	  if (highlighting[doc.key].court_decision){
 		output+='...';
@@ -60,7 +60,7 @@ AjaxSolr.theme.prototype.snippet = function (doc, highlighting, mlt) {
 		output+='...';
 	  }	
 	  else{
-		output +=doc.court_absract;
+		output +=doc.court_abstract;
 	  }
   }
   if (mlt[doc.key].numFound) {
