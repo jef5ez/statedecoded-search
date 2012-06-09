@@ -14,8 +14,9 @@
 			var self = this;
 			return function(e) {
 				var value = $(this).text();
-				if (value && self.set(value)) {
-					self.manager.doRequest(0);
+				if (value) {
+					gQuery = value;
+					makeQuery();
 				}
 			}
 		}

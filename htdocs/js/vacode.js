@@ -1,9 +1,15 @@
-function getObjectKeys()
+function getObjectKeys (obj){
+	var keys = [];
+	for(var x in obj){
+		keys.push(x);
+	}
+	return keys;
+}
 
-Array.prototype.remove = function (str) {
-	for (var x in this){
-		if(this[x] === str){
-			this.splice(x, 1);
+function removeFrom(arr, str) {
+	for (var x in arr){
+		if(arr[x] === str){
+			arr.splice(x, 1);
 			return true;
 		}
 	}

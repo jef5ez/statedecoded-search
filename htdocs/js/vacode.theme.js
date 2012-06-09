@@ -17,6 +17,16 @@ AjaxSolr.theme.prototype.result = function (doc, snippet, highlighting) {
 	  output += '<p id="links_' + doc.id + '" class="links"></p>';
 	  output += '<p>' + snippet + '</p></div>';
   }
+  if (doc.doc_type === "Court_Decision"){
+	  output += '<div><h2>' + doc.court_date + ': ' + doc.court_name + '</h2>';
+	  output += '<p id="links_' + doc.id + '" class="links"></p>';
+	  output += '<p>' + snippet + '</p></div>';
+  }
+  if (doc.doc_type === "Comment"){
+	  output += '<div><h2>' + doc.title + ': ' + doc.author + '</h2>';
+	  output += '<p id="links_' + doc.id + '" class="links"></p>';
+	  output += '<p>' + doc.description + '</p></div>';
+  }
   return output;
 };
 
@@ -41,6 +51,17 @@ AjaxSolr.theme.prototype.snippet = function (doc, highlighting, mlt) {
   }
   if (doc.doc_type === "Definition"){
 	  output +=doc.def_text;
+  }
+  if (doc.doc_type === "Court_Decision"){
+	  output +=doc.court_name;
+	  if (highlighting[doc.key].court_decision){
+		output+='...';
+		output+=highlighting[doc.key].court_decision[0];
+		output+='...';
+	  }	
+	  else{
+		output +=doc.court_absract;
+	  }
   }
   if (mlt[doc.key].numFound) {
   	output += '<br/><br/>Laws related to this: '

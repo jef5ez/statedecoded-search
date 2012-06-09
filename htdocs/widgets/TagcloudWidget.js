@@ -8,7 +8,6 @@
 				this.display = function (){return true};
 			};
 			this.field = this.field.field;
-			console.log(this.field);
 			$(this.target).append('<div class="facet" id="' + this.field + '_facet"> \
 				<h2>' + this.name + '</h2> \
 				<div class="tagcloud" id="' + this.field + '"></div> \
@@ -18,10 +17,10 @@
 		
 		afterRequest: function () {
 			$(this.target).find('#' + this.field + '_facet').hide();
-			console.log(this.name + this.display);
-		  	if(this.display(this) && !(this.manager.response.facet_counts.facet_fields[this.field].length === 0)) {
+		  	if(this.display(this) && getObjectKeys(this.manager.response.facet_counts.facet_fields[this.field]).length) {
+		  		console.log('Showing ' + this.field);
 		  		$(this.target).find('#' + this.field + '_facet').show();
-			}
+			} else { console.log('Not showing ' + this.field);}
 			
 		  	var maxCount = 0;
 		  	var objectedItems = [];
@@ -41,7 +40,6 @@
 		  	for (var i = 0, l = objectedItems.length; i < l; i++) {
 				var facet = objectedItems[i].facet;
 				this.tagcloud.append(AjaxSolr.theme('tag', facet, parseInt(objectedItems[i].count / maxCount * 10), self.addFacet(facet)));
-				//$(this.target).append(AjaxSolr.theme('tag', facet, parseInt(objectedItems[i].count / maxCount * 10), self.addFacet(facet)));
 		  	}
 		  	this.tagcloud.append('<div class="clear"></div>');
 		},

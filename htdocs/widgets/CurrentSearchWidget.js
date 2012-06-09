@@ -22,7 +22,7 @@
 		removeFacet: function (facet) {
 			var self = this;
   			return function () {
-    			if (gFacets.remove(facet)) {
+    			if (removeFrom(gFacets,facet)) {
     				updateFacets();
         			if (self.manager.store.removeByValue('fq', facet)) {
 						self.manager.doRequest(0);

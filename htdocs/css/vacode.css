@@ -79,7 +79,7 @@ a:hover {
   letter-spacing: -2px;
 }
 .mlt{
- background-color: silver;
+ background-color: #d0d0d0;
  border-radius: 3px;
  border-color: #909090;
  display: inline-block;
@@ -119,10 +119,10 @@ a:hover {
 /* left */
 
 .left {
-  background-color:#fff;
+  /*background-color:#fff;*/
   border-radius: 5px;
   float: left;
-  padding: 0 0 10px 10px;
+  padding: 0;
   width: 20%;
 }
 .left h2 {
@@ -136,16 +136,18 @@ a:hover {
 }
 
 .left_section{
-  background-color:#f0f0f0;
+  /*background-color:#f0f0f0;*/
   border-radius: 3px;
+  margin: 10px;
 }
 .left_section h2 {
   background-color:#829986;
   padding:2px;
+  border-radius: 3px;
 }
 
 .tagcloud {
-  background-color: #606060;
+  /*background-color: #606060;*/
   border-radius: 3px;
   padding: 10px 15px 0;
 }
