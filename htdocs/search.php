@@ -12,6 +12,7 @@
 		var gSolrUrl = 'http://localhost:8983/solr/';
 		var gQuery = null;
 		<?php
+			require $_SERVER['DOCUMENT_ROOT'].'/../includes/page-head.inc.php';
 			if (isset($_GET['q']) && !empty($_GET['q']))
 			{
 				echo 'gQuery = "'.$_GET['q'].'";';
@@ -68,16 +69,6 @@
 		<div id="header">
 		</div>
 		
-		<div class="right">
-			<div id="result">
-				<div id="navigation">
-					<ul id="pager"></ul>
-					<div id="pager-header"></div>
-				</div>
-				<div id="docs"></div>
-			</div>
-		</div>
-		
 		<div class="left">
 			<div class="left_section" id="search_section">
 			<h2>Filter by Document</h2>
@@ -98,13 +89,23 @@
 				<label for="Comment">Comment</label>
 			</form>
 			</div>
-			
 			<div class="left_section" id="facet_section">
 				<h2>Fields:</h2>
 				<ul id="selection"></ul>
 				
 			</div>
 		</div>
+		
+		<div class="right">
+			<div id="result">
+				<div id="navigation">
+					<ul id="pager"></ul>
+					<div id="pager-header"></div>
+				</div>
+				<div id="docs"></div>
+			</div>
+		</div>
+			
 		<div class="clear"></div>
 	</div>
 </body>
