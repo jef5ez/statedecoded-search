@@ -8,7 +8,7 @@
       				var value = $(this).val();
       				$( '#query' ).autocomplete("close");
 					if (value){
-						makeQuery.q = value;
+						gQuery = value;
 						makeQuery();
 					}
     			}
@@ -17,7 +17,7 @@
 				var value = $(self.target).find('input#query').val();
 				$( '#query' ).autocomplete("close");
 				if (value){
-					makeQuery.q = value;
+					gQuery = value;
 					makeQuery();
 				}
   			});

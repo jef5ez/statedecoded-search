@@ -757,10 +757,12 @@
        <str name="facet.field">tags</str>
 
 =======
-       <str name="facet.field">law_code</str>
-       <str name="facet.field">law_chapter</str>
-       <str name="facet.field">tags</str>
+
+<<<<<<< .merge_file_PlUFIp
 >>>>>>> origin
+=======
+       <int name="facet.f.law_code.mincount">1</int>
+>>>>>>> .merge_file_i089Rm
        <int name="facet.limit">30</int>
        <int name="facet.mincount">1</int>
        <str name="json.nl">map</str>

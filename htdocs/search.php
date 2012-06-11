@@ -6,20 +6,21 @@
 	<title>VAcode Mockup</title>
 	<link rel="stylesheet" type="text/css" href="/css/vacode.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="/autocomplete/css/ui-lightness/jquery-ui-1.8.20.custom.css"/>
-	<?php
-		$solrUrl = 'http://localhost:8983/solr/';
-		echo '<script type="text/javascript">var gQuery = null, gFacets = null;';
-		if (isset($_GET['q']) && !empty($_GET['q']))
-		{
-			if(!empty($_GET['q'])){
+	<script type="text/javascript" src="/js/betterStrings.js"></script>
+	<script type="text/javascript" src="/js/valueParse.js"></script>
+	<script type="text/javascript">
+		var gSolrUrl = 'http://localhost:8983/solr/';
+		var gQuery = null;
+		<?php
+			if (isset($_GET['q']) && !empty($_GET['q']))
+			{
 				echo 'gQuery = "'.$_GET['q'].'";';
 			}
-			if(!empty($_GET['facets'])){
-				echo 'gFacets = "'.$_GET['facets'].'".split(",");';
-			}
+		?>
+		if (gQuery) {
+			gQuery = gQuery.removeNonWords();
 		}
-		echo 'var gSolrUrl = "'.$solrUrl.'";</script>';
-	?>
+	</script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-ui-1.8.20.custom.min.js"></script>
@@ -84,10 +85,10 @@
 				<input type="checkbox" name="ALL" id="ALL"/>
 				<label for="ALL">Search All</label>
 				<br/>
-				<input type="checkbox" name="Law" id="Law" checked="checked" />
+				<input type="checkbox" name="Law" id="Law" />
 				<label for="Law">Law</label>
 				<br/>
-				<input type="checkbox" name="Definition" id="Definition" checked="checked" />
+				<input type="checkbox" name="Definition" id="Definition" />
 				<label for="Definition">Definition</label>
 				<br/>
 				<input type="checkbox" name="Court_Decision" id="Court_Decision"/>
@@ -98,19 +99,10 @@
 			</form>
 			</div>
 			
-			<div class="left_section" id="search_section">
+			<div class="left_section" id="facet_section">
 				<h2>Fields:</h2>
 				<ul id="selection"></ul>
 				
-				<div class="facet">
-					<h2>Title</h2>
-					<div class="tagcloud" id="law_code"></div>
-				</div>
-				
-				<div class="facet">
-					<h2>Tag</h2>
-					<div class="tagcloud" id="tags"></div>
-				</div>
 			</div>
 		</div>
 		<div class="clear"></div>

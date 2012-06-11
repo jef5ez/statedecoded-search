@@ -1,7 +1,19 @@
-function log(msg) {
-    setTimeout(function() {
-        throw new Error(msg);
-    }, 0);
+function getObjectKeys (obj){
+	var keys = [];
+	for(var x in obj){
+		keys.push(x);
+	}
+	return keys;
+}
+
+function removeFrom(arr, str) {
+	for (var x in arr){
+		if(arr[x] === str){
+			arr.splice(x, 1);
+			return true;
+		}
+	}
+	return false;
 }
 
 $(function(){
@@ -43,18 +55,17 @@ $(function(){
 });
 
 function makeQuery () {
-	if(makeQuery.q){
-		window.location.replace("?q=" + makeQuery.q + function(){ 
-			if(makeQuery.facets[0]){
-				return "&facets=" + $.each(makeQuery.facets, function(){
-					return this + ',';
-				});
-			}
-			return '';
-		}());
+	if(gQuery){
+		window.location.search ="q=" + gQuery;
 	}
 }
-makeQuery.facets = [];
+function updateFacets () {
+	var newHash = '';
+	if(gFacets[0]) {
+		newHash = "facets=" + gFacets.toString();
+	}
+	window.location.hash = newHash;
+}
 
 var Manager;
 (function ($) {
@@ -79,12 +90,36 @@ var Manager;
     		$('#pager-header').append(' for <b><span id="curr_search"></span><span id="suggestions" /></b>');
   		}
 	}));
-	
-	var fields = [ 'law_code', 'tags' ];
+	var fields = [
+		{
+			name:'Title', 
+			field:'law_code'
+		}, 
+		{
+			name:'Chapter', 
+			field:'law_chapter',
+			display: function(widget) {
+				var arr = widget.manager.store.get('fq');
+				if(arr[0].value){
+					for(var x in arr){
+						console.log(x);
+						if (arr[x].value.search("law_code") === 0){
+							return true;
+						}
+					}
+				}
+				return false;
+			}
+		}, 
+		{
+			name:'Tags', 
+			field:'tags'
+		}
+	];
 	for (var i = 0, l = fields.length; i < l; i++) {
 	  	Manager.addWidget(new AjaxSolr.TagcloudWidget({
-			id: fields[i],
-			target: '#' + fields[i],
+			id: fields[i].field,
+			target: '#facet_section',
 			field: fields[i]
 	 	}));
 	}
@@ -119,23 +154,26 @@ var Manager;
     Manager.init();
     if (gQuery){
 		Manager.store.addByValue('q', gQuery);
-		var params = {
-			'facet.field': [ 'law_code' , 'tags'],
-			'facet.limit': 30,
-			'facet.mincount': 1,
-			'f.topics.facet.limit': 50,
-			'json.nl': 'map'
-		};
-		for (var name in params) {
-			Manager.store.addByValue(name, params[name]);
-		}
-		if (gFacets){
-			for (var x in gFacets){
-				Manager.store.addByValue('fq', gFacets[x]);
-			}
-		}
-		Manager.doRequest();
     }
-    else { alert('Must make a query!');}
+    else { 
+    	Manager.store.addByValue('q', '*:*');
+    }
+    /*
+	var params = {
+		'facet.field': fields,
+		'facet.limit': 30,
+		'facet.mincount': 1,
+		'json.nl': 'map'
+	};
+	for (var name in params) {
+		Manager.store.addByValue(name, params[name]);
+	}
+	*/
+	if (gFacets[0]){
+		for (var x=0, l=gFacets.length; x < l; x++){
+			Manager.store.addByValue('fq', gFacets[x]);
+		}
+	}
+	Manager.doRequest();
   });
 })(jQuery);
