@@ -24,6 +24,7 @@ $(function(){
 			var params = [
 				'wt=json'
 				, 'indent=on'
+				, 'json.nl=map'
 				, 'terms.fl=law_text'
 				, 'terms.fl=law_location'
 				, 'terms.fl=law_title'
@@ -83,7 +84,7 @@ var Manager;
   		nextLabel: '&gt;',
   		innerWindow: 5,
   		renderHeader: function (perPage, offset, total) {
-    		$('#pager-header').html($('<span/>').text('displaying ' + Math.min(total, offset + 1) + ' to ' + Math.min(total, offset + perPage) + ' of ' + total + ' results'));
+    		$('#pager-header').html($('<span id="pagination"/>').text('displaying ' + Math.min(total, offset + 1) + ' to ' + Math.min(total, offset + perPage) + ' of ' + total + ' results'));
     		$('#pager-header').append(' for <b><span id="curr_search"></span><span id="suggestions" /></b>');
   		}
 	}));
