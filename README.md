@@ -21,7 +21,7 @@ Solr is an open source search engine based on Lucene.
 In order to use Solr search in the app, you must define the GLOBAL_SOLR variable in the config file to point to your solr instance. 
 
 Refer to apache-solr-3.6.0/Readme.txt for more license info.
-Refer to  apache-solr-3.6.0/vacode-search/Readme.txt for to start solr and import data
+Refer to  apache-solr-3.6.0/vacode-search/Readme.txt to start solr and import data
 
 Important Files
 -------------------------

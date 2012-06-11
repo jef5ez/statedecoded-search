@@ -27,8 +27,7 @@ http://lucene.apache.org/solr
 
 Getting Started
 ---------------
-
-See the "example" directory for an example Solr setup.  A tutorial
+  A tutorial
 using the example setup can be found at
    http://lucene.apache.org/solr/tutorial.html
 or linked from "docs/api/index.html" in a binary distribution.
@@ -38,13 +37,6 @@ Also, there are Solr clients for many programming languages, see
 
 Files included in an Apache Solr binary distribution
 ----------------------------------------------------
-
-example/
-  A self-contained example Solr instance, complete with a sample
-  configuration, documents to index, and the Jetty Servlet container.
-  Please see example/README.txt for information about running this
-  example.
-
 dist/apache-solr-XX.war
   The Apache Solr Application.  Deploy this WAR file to any servlet
   container to run Apache Solr.

@@ -28,6 +28,11 @@ To import from an sql database browse to/use curl on :
 
   http://localhost:8983/solr/sql-dataimport?command=full-import
 
+To import comments :
+
+  http://localhost:8983/solr/admin/dataimport.jsp?handler=/rss-dataimport
+
+
 To add documents to the index, use the post.sh script in the exampledocs
 subdirectory (while Solr is running), for example:
 
