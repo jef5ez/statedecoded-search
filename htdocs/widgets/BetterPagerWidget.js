@@ -13,7 +13,7 @@
  * @todo Don't use the manager to send the request. Request only the results,
  * not the facets. Update only itself and the results widget.
  */
-AjaxSolr.BetterPagerWidget = AjaxSolr.PagerWidget.extend(
+AjaxSolr.BetterPagerWidget = AjaxSolr.AbstractWidget.extend(
   /** @lends AjaxSolr.PagerWidget.prototype */
   {
   /**
@@ -34,7 +34,7 @@ AjaxSolr.BetterPagerWidget = AjaxSolr.PagerWidget.extend(
    * @type Number
    * @default 1
    */
-  outerWindow: 1,
+  outerWindow: 0,
 
   /**
    * The previous page link label.
@@ -151,10 +151,10 @@ AjaxSolr.BetterPagerWidget = AjaxSolr.PagerWidget.extend(
     for (var i = Math.max(this.totalPages - this.outerWindow, windowTo + 1); i < this.totalPages; i++) {
       visible.push(i);
     }
-    // Always show the last page, unless it's the first page
+   /* // Always show the last page, unless it's the first page
     if (this.totalPages > 1) {
       visible.push(this.totalPages);
-    }
+    }*/
 
     return visible;
   },

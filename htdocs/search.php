@@ -35,6 +35,7 @@
 	<script type="text/javascript" src="/lib/helpers/jquery/ajaxsolr.theme.js"></script>
 	<script type="text/javascript" src="/lib/core/AbstractFacetWidget.js"></script>
 	<script type="text/javascript" src="/lib/core/AbstractTextWidget.js"></script>
+	<script type="text/javascript" src="/widgets/BetterPagerWidget.js"></script>
 	<script type="text/javascript" src="/widgets/TagcloudWidget.js"></script>
 	<script type="text/javascript" src="/widgets/ResultWidget.js"></script>
 	<script type="text/javascript" src="/widgets/TextWidget.js"></script>

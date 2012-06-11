@@ -73,7 +73,7 @@ var Manager;
   		target: '#docs'
 	}));
     
-    Manager.addWidget(new AjaxSolr.PagerWidget({
+    Manager.addWidget(new AjaxSolr.BetterPagerWidget({
   		id: 'pager',
   		target: '#pager',
   		prevLabel: '&lt;',
