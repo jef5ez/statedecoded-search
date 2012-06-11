@@ -20,36 +20,30 @@ $(function(){
 	$( '#query' ).autocomplete({
 		delay: 0,
 		source: function(request, response){
-				function suggestData(data) {
+			qstr = 'terms.prefix=' + request.term;
+			var params = [
+				'wt=json'
+				, 'indent=on'
+				, 'terms.fl=law_text'
+			].concat(qstr);
+			var urlData = params.join('&');
+			url = gSolrUrl +'terms?'+urlData;
+			$.ajax({
+				crossDomain: true,  
+				dataType: "jsonp",
+				url : url,
+				type: "GET",
+				dataType: "jsonp",
+				jsonp : "json.wrf",
+				success: function(data) {
 					var suggestions = data.terms.law_text;
 					for(var x=1; x<suggestions.length; x++){
 						suggestions.splice(x, 1);
 					} 
 					response(suggestions);
-				}
-				qstr = 'terms.prefix=' + request.term;
-				var params = getstandardargs().concat(qstr);
-				var urlData = params.join('&');
-				url = gSolrUrl +'terms?'+urlData;
-				$.ajax({
-					crossDomain: true,  
-					dataType: "jsonp",
-					url : url,
-					type: "GET",
-					dataType: "jsonp",
-					jsonp : "json.wrf",
-					success: suggestData,
-					error: function(data) { response(['error']) },
-				});
-			
-			function getstandardargs() {
-				var params = [
-					'wt=json'
-					, 'indent=on'
-					, 'terms.fl=law_text'
-				];
-				return params;
-			}
+				},
+				error: function(data) { response(['error']) },
+			});
 		}
 	});
 });

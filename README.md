@@ -17,3 +17,5 @@ Development of The State Decoded is funded by the John S. and James L. Knight Fo
 
 #### Search
 Solr is an open source search engine based on lucene.
+
+In order to use Solr search in the app, you must define the GLOBAL_SOLR variable in the config file to point to your solr instance. 
