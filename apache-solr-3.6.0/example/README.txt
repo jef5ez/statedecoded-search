@@ -46,10 +46,3 @@ UIMA, the clustering component, or other modules in "contrib",
 you will need to copy the required jars into solr/lib or update the paths to
 the jars in your solrconfig.xml.
 
-By default, start.jar starts Solr in Jetty using the default solr home
-directory of "./solr/" -- To run other example configurations, you can
-speciy the solr.solr.home system property when starting jetty...
-
-  java -Dsolr.solr.home=multicore -jar start.jar
-  java -Dsolr.solr.home=example-DIH -jar start.jar
-
