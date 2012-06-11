@@ -18,9 +18,6 @@
 				echo 'gQuery = "'.$_GET['q'].'";';
 			}
 		?>
-		if (gQuery) {
-			gQuery = gQuery.removeNonWords();
-		}
 	</script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/autocomplete/js/jquery-1.7.2.min.js"></script>
@@ -91,8 +88,10 @@
 			</form>
 			</div>
 			<div class="left_section" id="facet_section">
+				<div id="fields_section">
 				<h2>Fields:</h2>
 				<ul id="selection"></ul>
+				</div>
 				
 			</div>
 		</div>

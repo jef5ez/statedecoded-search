@@ -123,7 +123,7 @@ var Manager;
 	
 	Manager.addWidget(new AjaxSolr.CurrentSearchWidget({
   		id: 'currentsearch',
-  		target: '#selection',
+  		target: '#fields_section',
 	}));
 	
 	Manager.addWidget(new AjaxSolr.TextWidget({

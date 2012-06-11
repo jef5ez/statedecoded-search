@@ -27,7 +27,7 @@ define('EDITION_YEAR', 2011);
 define('MYSQL_DSN', 'mysql://root:root@localhost:3306/vacode');
 
 # Global Solr URL
-define('GLOBAL_SOLR', 'http://3jr5.localtunnel.com/solr/');
+define('GLOBAL_SOLR', 'http://localhost:8983/solr/');
 
 # Specify the title and chapter of the code that contains definitions of terms that are used
 # throughout the code, and thus should have a global scope.

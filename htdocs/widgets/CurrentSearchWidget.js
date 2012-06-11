@@ -7,6 +7,7 @@ var nameSwitcher = {
 (function ($) {
 	AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
 		afterRequest: function () {
+    		$(this.target).show();
 	  		var self = this;
   			var links = [];
 
@@ -18,10 +19,10 @@ var nameSwitcher = {
   			}
 
   			if (links.length) {
-    			AjaxSolr.theme('list_items', this.target, links);
+    			AjaxSolr.theme('list_items', $(this.target).find('#selection'), links);
   			}
   			else {
-    			$(this.target).html('<div>No facets selected.</div>');
+    			$(this.target).hide();
   			}
 		},
 
