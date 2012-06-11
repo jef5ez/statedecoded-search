@@ -1,0 +1,21 @@
+<dataConfig>
+        <dataSource type="URLDataSource" name="comments"/>
+	<document name="comments_doc">
+		<entity name="vacode"
+			pk="link"
+			url="http://vacode.disqus.com/comments.rss"
+			processor="XPathEntityProcessor"
+			forEach="/rss/channel | /rss/channel/item"
+			dataSource="comments">
+
+			<field column="source"		xpath="/rss/channel/title"	commonField="true" />
+			<field column="source-link"	xpath="/rss/channel/link"	commonField="true" />
+			
+			<field column="title"		xpath="/rss/channel/item/title" />
+			<field column="link"		xpath="/rss/channel/item/link" />
+			<field column="description"	xpath="/rss/channel/item/description" />
+			<field column="author"		xpath="/rss/channel/item/creator" />
+			<field column="post_date"	xpath="/rss/channel/item/pubDate" dateTimeFormat="E, d M yyyy"/>
+		</entity>
+	</document>
+</dataConfig>
