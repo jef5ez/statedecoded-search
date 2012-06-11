@@ -53,7 +53,6 @@ AjaxSolr.theme.prototype.snippet = function (doc, highlighting, mlt) {
 	  output +=doc.def_text;
   }
   else if (doc.doc_type === "Court_Decision"){
-	  output +=doc.court_name;
 	  if (highlighting[doc.key].court_decision){
 		output+='...';
 		output+=highlighting[doc.key].court_decision[0];

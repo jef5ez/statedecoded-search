@@ -66,10 +66,11 @@ a:hover {
 /* right */
 
 .right {
-float: right;
+  float: right;
   height: 100%;
   padding: 1%;
   text-align: left;
+  min-width: 50%;
   max-width: 70%;
 }
 .right h2 {
