@@ -58,10 +58,15 @@ Important Files
 -------------------------
   solrconfig.xml
 	This file specifies many default query setting as well as different 
-	request handlers.
+	request handlers. The important ones are select and terms. 
+	localhost:8983/solr/select/ is where queries are sent. /solr/terms
+	is used for autocomplete.
 
   schema.xml
 	Specifies your field types and the fields to keep the data in.
+	General fields have been defined for laws, definitions, court
+	cases and comments as well as others for spell checking and other
+	use cases.
 
   *-data-config.xml
 	Specifies how data gets imported into the Solr index.

@@ -54,9 +54,6 @@ dist/apache-solr-XX.jar
   Apache Solr Plugins (see http://wiki.apache.org/solr/SolrPlugins for
   more information).
 
-docs/api/index.html
-  The Apache Solr Javadoc API documentation and Tutorial
-
 
 Instructions for Building Apache Solr from Source
 -------------------------------------------------
