@@ -9,10 +9,10 @@
 	<script type="text/javascript" src="/js/betterStrings.js"></script>
 	<script type="text/javascript" src="/js/valueParse.js"></script>
 	<script type="text/javascript">
-		var gSolrUrl = 'http://localhost:8983/solr/';
 		var gQuery = null;
 		<?php
 			require $_SERVER['DOCUMENT_ROOT'].'/../includes/page-head.inc.php';
+			echo 'var gSolrUrl = "'.GLOBAL_SOLR.'";';
 			if (isset($_GET['q']) && !empty($_GET['q']))
 			{
 				echo 'gQuery = "'.$_GET['q'].'";';

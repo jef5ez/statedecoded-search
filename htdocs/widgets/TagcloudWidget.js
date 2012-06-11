@@ -17,10 +17,9 @@
 		
 		afterRequest: function () {
 			$(this.target).find('#' + this.field + '_facet').hide();
-		  	if(this.display(this) && getObjectKeys(this.manager.response.facet_counts.facet_fields[this.field]).length) {
-		  		console.log('Showing ' + this.field);
+		  	if(this.display(this) && getObjectKeys(this.manager.response.facet_counts.facet_fields[this.field]).length > 1) {
 		  		$(this.target).find('#' + this.field + '_facet').show();
-			} else { console.log('Not showing ' + this.field);}
+			} 
 			
 		  	var maxCount = 0;
 		  	var objectedItems = [];
@@ -47,7 +46,9 @@
 		addFacet: function(facet) {
 			var self = this;
 			return function () {
-				gFacets.push(self.field + ":" + facet);
+				if(facet.split(' ').length > 1) {
+					gFacets.push(self.field + ':"' + facet + '"');
+				} else {gFacets.push(self.field + ":" + facet);}
 				updateFacets();
 				self.clickHandler(facet)();
 			}

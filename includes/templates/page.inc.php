@@ -17,6 +17,7 @@
 	- Transparency is not recommended (iOS will put a black BG behind the icon) -->
 	
 	<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/autocomplete/css/ui-lightness/jquery-ui-1.8.20.custom.css"/>
 	<link rel="stylesheet" href="/css/master.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="/css/jquery.qtip.css" type="text/css" media="screen">
 	<link rel="home" title="Home" href="/" />
@@ -91,6 +92,8 @@
 	<script src="/js/jquery.color.js"></script>
 	<script src="/js/jquery.cookies.2.2.0.min.js"></script>
 	<script src="/widgets/MoreLikeThisWidget.js"></script>
+	<script type="text/javascript" src="/autocomplete/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="/autocomplete/js/jquery-ui-1.8.20.custom.min.js"></script>
   	<script>
   	{{global_solr}}
 	
