@@ -66,11 +66,13 @@ a:hover {
 /* right */
 
 .right {
-  border-left: 1px solid #aaa;
-  float: right;
   padding: 10px 20px 10px 40px;
   text-align: left;
+<<<<<<< HEAD
 
+=======
+  width: auto;
+>>>>>>> 2933bda3d7ac45ea57835fee15f483153c2c4931
 }
 .right h2 {
   padding: 15px 0 5px 0;
@@ -124,7 +126,11 @@ a:hover {
   border-radius: 5px;
   /*float: right;*/
   padding: 0;
-  width: 25%;1
+<<<<<<< HEAD
+=======
+  width: 300px;
+  height: 100%;
+>>>>>>> 2933bda3d7ac45ea57835fee15f483153c2c4931
 }
 .left h2 {
   clear: left;
