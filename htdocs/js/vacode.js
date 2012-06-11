@@ -25,6 +25,9 @@ $(function(){
 				'wt=json'
 				, 'indent=on'
 				, 'terms.fl=law_text'
+				, 'terms.fl=law_location'
+				, 'terms.fl=law_title'
+				, 'terms.fl=def_term'
 			].concat(qstr);
 			var urlData = params.join('&');
 			url = gSolrUrl +'terms?'+urlData;
@@ -78,9 +81,9 @@ var Manager;
   		target: '#pager',
   		prevLabel: '&lt;',
   		nextLabel: '&gt;',
-  		innerWindow: 1,
+  		innerWindow: 5,
   		renderHeader: function (perPage, offset, total) {
-    		$('#pager-header').html($('<span/>').text('displaying ' + Math.min(total, offset + 1) + ' to ' + Math.min(total, offset + perPage) + ' of ' + total));
+    		$('#pager-header').html($('<span/>').text('displaying ' + Math.min(total, offset + 1) + ' to ' + Math.min(total, offset + perPage) + ' of ' + total + ' results'));
     		$('#pager-header').append(' for <b><span id="curr_search"></span><span id="suggestions" /></b>');
   		}
 	}));

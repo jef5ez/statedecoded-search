@@ -1,2 +1,5 @@
 apache-solr-3.6.0/example/solr/data
+apache-solr-3.6.0/example/solr/conf/rss-dataimport.properties
+apache-solr-3.6.0/example/solr/conf/sql-dataimport.properties
+apache-solr-3.6.0/example/solr/conf/dataimport.properties
 .DS_Store
