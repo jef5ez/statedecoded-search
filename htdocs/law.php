@@ -271,12 +271,19 @@ $sidebar .= '<section id="elsewhere">
 				<h1>Trust, But Verify</h1>
 				<p>If you’re reading this for anything important, you should double-check its
 				accuracy';
+			
 if (function_exists('official_url'))
 {
 	$law->url = official_url($law->section_number);
 	$sidebar .= '—<a href="'.$law->url.'">read §&nbsp;'.$law->section_number;
 }
 $sidebar .= ' on the official '.LAWS_NAME.' website</a>.
+			</section>';
+
+#Place for more like this widget
+$sidebar .= '<section id="more-like-this">
+				<h1>More Like This</h1>
+				<ul></ul>
 			</section>';
 
 # Put the shorthand $body variable into its proper place.

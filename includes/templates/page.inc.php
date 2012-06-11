@@ -51,7 +51,7 @@
 		<nav id="main_navigation">
 			<div id="search">
 				<form method="get" action="/search/">
-					<input type="search" size="20" name="q" placeholder="Search the Code"/>
+					<input type="search" id="query" size="20" name="q" placeholder="Search the Code"/>
 					<input type="submit" value="Search" />
 				</form>
 			</div> <!-- // #search -->
@@ -90,7 +90,43 @@
 	<script src="/js/jquery.qtip.min.js"></script>
 	<script src="/js/jquery.color.js"></script>
 	<script src="/js/jquery.cookies.2.2.0.min.js"></script>
+	<script src="/widgets/MoreLikeThisWidget.js"></script>
   	<script>
+  	{{global_solr}}
+	
+	//Autocomplete for search terms
+	$(function(){
+		$( '#query' ).autocomplete({
+			delay: 0,
+			source: function(request, response){
+				qstr = 'terms.prefix=' + request.term;
+				var params = [
+					'wt=json'
+					, 'indent=on'
+					, 'terms.fl=law_text'
+				].concat(qstr);
+				var urlData = params.join('&');
+				url = gSolrUrl +'terms?'+urlData;
+				$.ajax({
+					crossDomain: true,  
+					dataType: "jsonp",
+					url : url,
+					type: "GET",
+					dataType: "jsonp",
+					jsonp : "json.wrf",
+					success: function(data) {
+						var suggestions = data.terms.law_text;
+						for(var x=1; x<suggestions.length; x++){
+							suggestions.splice(x, 1);
+						} 
+						response(suggestions);
+					},
+					error: function(data) { response(['error']) },
+				});
+			}
+		});
+	});
+
 	$('a.section-permalink').qtip({
 		content: "Permanent link to this subsection",
 		show: {

@@ -1295,6 +1295,9 @@ class Page
 			$field->browser_title .= '—'.SITE_TITLE;
 		}
 		
+		#Define the global Solr URL
+		$this->html = str_replace('{{global_solr}}', 'var gSolrUrl = "'.GLOBAL_SOLR.'";' , $this->html);
+		
 		# Replace all of our in-page tokens with our defined variables.
 		foreach ($this->field as $field=>$contents)
 		{
