@@ -8,7 +8,7 @@ body {
 	background-image: url("http://vacode.org/images/bkgnd-header.png"), url("http://vacode.org/images/bkgnd-noise.png");
 	background-repeat: repeat-x, repeat;
   color: #333;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 12px;
   line-height: 18px;
 }
@@ -26,7 +26,7 @@ a:hover {
 
 #wrap {
   margin: 0px auto;
-  width: 100%;
+  /*width: 100%;*/
 }
 .clear {
   clear: both;
@@ -43,7 +43,7 @@ a:hover {
 }
 #header h1 {
 	color: #87999f;
-	font-family: "Hoefler Text", Baskerville, Garamond, "Palatino Linotype", Georgia, "Times New Roman", serif;
+	font-family:"Hoefler Text", Baskerville, Garamond, "Palatino Linotype", Georgia, "Times New Roman", serif;
 	font-size: 3.0em;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
@@ -57,6 +57,7 @@ a:hover {
 }
 #header h2 {
 	background: transparent url('http://vacode.org/images/h2_tagline.png') no-repeat top left;
+	font-family: "HelveticaNeue", Helvetica, Verdana, Arial, sans-serif;
 	height: 59px;
 	width: 415px;
 	margin: 0 auto;
@@ -69,7 +70,7 @@ a:hover {
   float: right;
   padding: 10px 20px 10px 40px;
   text-align: left;
-  width: 70%;
+
 }
 .right h2 {
   padding: 15px 0 5px 0;
@@ -121,9 +122,9 @@ a:hover {
 .left {
   /*background-color:#fff;*/
   border-radius: 5px;
-  float: left;
+  /*float: right;*/
   padding: 0;
-  width: 25%;
+  width: 25%;1
 }
 .left h2 {
   clear: left;
